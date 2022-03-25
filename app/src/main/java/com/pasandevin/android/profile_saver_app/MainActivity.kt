@@ -1,11 +1,13 @@
 package com.pasandevin.android.profile_saver_app
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.pasandevin.android.profile_saver_app.databinding.ActivityMainBinding
 
@@ -21,7 +23,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        loadData()
         binding.registerbutton.setOnClickListener { view ->
+              saveData()
             this.goToSecondActivity()
         }
 
@@ -43,5 +47,33 @@ class MainActivity : AppCompatActivity() {
     fun goToSecondActivity() {
         val intent = Intent(this, SecondActivity::class.java)
         startActivity(intent)
+    }
+
+    fun saveData() {
+        val insertedName = binding.textPersonName.text.toString()
+        val insertedEmail = binding.textemail.text.toString()
+        val insertedPhone = binding.textphone.text.toString()
+        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply {
+            putString("nameKey", insertedName)
+            putString("emailKey", insertedEmail)
+            putString("phoneKey", insertedPhone)
+
+        }.apply()
+
+        Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show()
+    }
+
+    fun loadData() {
+        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val savedName = sharedPreferences.getString("nameKey", null)
+        val savedEmail = sharedPreferences.getString("emailKey", null)
+        val savedPhone = sharedPreferences.getString("phoneKey", null)
+
+        binding.textPersonName.setText(savedName)
+        binding.textemail.setText(savedEmail)
+        binding.textphone.setText(savedPhone)
+
     }
 }
