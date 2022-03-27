@@ -23,12 +23,20 @@ class SecondActivity : AppCompatActivity() {
         val savedName = sharedPreferences.getString("nameKey", null)
         val savedEmail = sharedPreferences.getString("emailKey", null)
         val savedPhone = sharedPreferences.getString("phoneKey", null)
-        val savedBoolean = sharedPreferences.getBoolean("booleanKey", false).toString()
+        val savedBoolean = sharedPreferences.getBoolean("booleanKey", false)
+        val booleanString = getLabelForBoolean(savedBoolean)
 
         binding.textlabelname.setText(savedName)
         binding.textlabelemail.setText(savedEmail)
         binding.textlabelphone.setText(savedPhone)
-        binding.textlabeladult.setText(savedBoolean)
+        binding.textlabeladult.setText(booleanString)
 
+    }
+
+    fun getLabelForBoolean(boolean: Boolean): String {
+        if (boolean.equals(true)) {
+            return "Adult"
+        }
+        return "not Adult"
     }
 }
