@@ -12,8 +12,12 @@
         android:layout_height="34dp"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_user"
-        tools:layout_editor_absoluteX="90dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imgemail"
+        app:layout_constraintEnd_toStartOf="@+id/textlabelname"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:srcCompat="@drawable/img_user" />
 
     <TextView
         android:id="@+id/textlabelname"
@@ -22,8 +26,14 @@
         android:text="Name"
         android:textColor="@color/design_default_color_primary"
         android:textSize="25dp"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="57dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textlabelemail"
         app:layout_constraintStart_toEndOf="@+id/imgpuser"
-        tools:layout_editor_absoluteY="0dp" />
+/>
 
     <ImageView
         android:id="@+id/imgemail"
@@ -31,66 +41,64 @@
         android:layout_height="34dp"
 
 
-        app:layout_constraintTop_toBottomOf="@+id/imgpuser"
         app:srcCompat="@drawable/img_mail"
-        tools:layout_editor_absoluteX="90dp" />
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="126dp"
+
+        app:layout_constraintTop_toBottomOf="@id/imgpuser"
+
+
+        />
 
     <TextView
         android:id="@+id/textlabelemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
         android:text="Email"
 
         android:textColor="@color/design_default_color_primary"
         android:textSize="25dp"
-        app:layout_constraintStart_toEndOf="@+id/imgemail"
-        app:layout_constraintTop_toBottomOf="@+id/textlabelname" />
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="232dp" />
 
     <ImageView
         android:id="@+id/imgphone"
         android:layout_width="38dp"
         android:layout_height="34dp"
 
-        app:layout_constraintTop_toBottomOf="@+id/imgemail"
         app:srcCompat="@drawable/img_phone"
-        tools:layout_editor_absoluteX="83dp" />
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="216dp" />
 
     <TextView
         android:id="@+id/textlabelphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
         android:text="Phone"
         android:textColor="@color/design_default_color_primary"
         android:textSize="25dp"
-        app:layout_constraintStart_toEndOf="@+id/imgphone"
-        app:layout_constraintTop_toBottomOf="@+id/textlabelemail" />
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="276dp" />
 
     <TextView
         android:id="@+id/textlabeladult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
         android:text="Adult?"
 
         android:textColor="@color/design_default_color_primary"
         android:textSize="25dp"
-        app:layout_constraintStart_toEndOf="@+id/imgandroid"
-        app:layout_constraintTop_toBottomOf="@+id/textlabelphone" />
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="266dp" />
 
     <ImageView
         android:id="@+id/imgandroid"
         android:layout_width="38dp"
         android:layout_height="34dp"
 
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imgphone"
         app:srcCompat="@drawable/img_18"
-        tools:layout_editor_absoluteX="83dp" />
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="250dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

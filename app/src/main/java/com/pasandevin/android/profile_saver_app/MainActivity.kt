@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        loadData()
         binding.registerbutton.setOnClickListener { view ->
               saveData()
             this.goToSecondActivity()
@@ -67,17 +65,4 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show()
     }
 
-    fun loadData() {
-        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
-        val savedName = sharedPreferences.getString("nameKey", null)
-        val savedEmail = sharedPreferences.getString("emailKey", null)
-        val savedPhone = sharedPreferences.getString("phoneKey", null)
-        val savedBoolean = sharedPreferences.getBoolean("booleanKey", false)
-
-        binding.textPersonName.setText(savedName)
-        binding.textemail.setText(savedEmail)
-        binding.textphone.setText(savedPhone)
-        binding.switchadult.setChecked(savedBoolean)
-
-    }
 }
