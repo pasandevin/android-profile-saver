@@ -53,12 +53,14 @@ class MainActivity : AppCompatActivity() {
         val insertedName = binding.textPersonName.text.toString()
         val insertedEmail = binding.textemail.text.toString()
         val insertedPhone = binding.textphone.text.toString()
+        val insertedBoolean = binding.switchadult.isChecked
         val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.apply {
             putString("nameKey", insertedName)
             putString("emailKey", insertedEmail)
             putString("phoneKey", insertedPhone)
+            putBoolean("booleanKey", insertedBoolean)
 
         }.apply()
 
@@ -70,10 +72,12 @@ class MainActivity : AppCompatActivity() {
         val savedName = sharedPreferences.getString("nameKey", null)
         val savedEmail = sharedPreferences.getString("emailKey", null)
         val savedPhone = sharedPreferences.getString("phoneKey", null)
+        val savedBoolean = sharedPreferences.getBoolean("booleanKey", false)
 
         binding.textPersonName.setText(savedName)
         binding.textemail.setText(savedEmail)
         binding.textphone.setText(savedPhone)
+        binding.switchadult.setChecked(savedBoolean)
 
     }
 }
